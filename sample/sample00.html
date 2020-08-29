@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Touch Tracker Marker</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+<style type="text/css">
+body { margin: 0px; overflow: hidden; }
+/* canvas { border: 1px solid black; } */
+</style>
+<script type="text/javascript" src="magictouch.js"></script>
+<script type="text/javascript">
+var canvas;
+var ctx;
+var w = 0;
+var h = 0;
+var timer;
+var ox = -1, oy = -1;
+var updateStarted = false;
+var touches = [];
+// // nw と nh　は画面のサイズ
+var nw = window.innerWidth;
+var nh = window.innerHeight;
+var mx = nw / 2;
+var my = nh / 2;
+var nx, ny;
+function update() {
+	if (updateStarted) return;
+	updateStarted = true;
+  // // // nw と nh　は画面のサイズ
+	// var nw = window.innerWidth;
+	// var nh = window.innerHeight;
+
+	if ((w != nw) || (h != nh)) {
+		w = nw;
+		h = nh;
+		canvas.style.width = w+'px';
+		canvas.style.height = h+'px';
+		canvas.width = w;
+		canvas.height = h;
+	}
+	ctx.clearRect(0, 0, w, h);
+	var i, len = touches.length;
+
+  // 初期表示
+  ctx.arc(mx, my, 20, 0, 2*Math.PI, true);
+  ctx.fillStyle = "rgba(0, 0, 200, 0.2)";
+  ctx.fill();
+  ctx.lineWidth = 2.0;
+  ctx.strokeStyle = "rgba(0, 0, 200, 0.8)";
+  ctx.stroke();
+
+  for (i=0; i<len; i++) {
+		var touch = touches[i];
+    nx = touch.pageX;
+    ny = touch.pageY;
+
+		ctx.beginPath();
+    if(ox == -1 || oy == -1){}
+    else {
+      var x = nx - ox;
+      var y = ny - oy;
+
+      mx += x;
+      my += y;
+    }
+
+		ctx.arc(mx, my, 20, 0, 2*Math.PI, true);
+		ctx.fillStyle = "rgba(0, 0, 200, 0.2)";
+		ctx.fill();
+		ctx.lineWidth = 2.0;
+		ctx.strokeStyle = "rgba(0, 0, 200, 0.8)";
+		ctx.stroke();
+    // if(ox == -1 || oy == -1) {
+    //   nx = -1; ny = -1;
+    // }
+    ox = nx;
+    oy = ny;
+    console.log('mx -> ' + mx +'\nmy -> ' + my + '\nox -> ' + ox +'\noy -> ' + oy);
+	}
+	updateStarted = false;
+}
+function ol() {
+	canvas = document.getElementById('canvas');
+	ctx = canvas.getContext('2d');
+	timer = setInterval(update, 15);
+  canvas.addEventListener('touchend', function() {
+  	ctx.clearRect(0, 0, w, h);
+    console.log('end');
+    // nx = -1; ny = -1;
+  });
+  canvas.addEventListener('touchmove', function(event) {
+    event.preventDefault();
+    touches = event.touches;
+  });
+  canvas.addEventListener('touchstart', function(event) {
+    console.log('start');
+    ox = oy = -1;
+  });
+};
+</script>
+</head>
+<body onload="ol()">
+
+<canvas id="canvas" width="300" height="300" style="top:0px; left:0px; width: 300px; height: 300px;"></canvas>
+<object id="tuio" type="application/x-tuio">Plugin FAILED to load</object>
+
+</body>
+</html>
