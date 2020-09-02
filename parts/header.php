@@ -1,5 +1,6 @@
 <?php
-$webSiteTitle = "子ども会を変えたい";
+// $webSiteTitle = "子ども会を変えたい";
+$webSiteTitle = "ジュニアのたまりば";
 ?>
 <!-- ナビ始まり スマホサイズ時に出現-->
 <nav class="navbar navbar-expand-lg text-left navbar-dark bg-secondary d-lg-none">
