@@ -39,94 +39,12 @@ $charH = new CharChicanClass();
       <!-- ./パンくずリスト -->
 
         <div class="col-md-12 order-md-1">
-          <div class="mb-3 h2"><i class="far fa-clipboard mr-2"></i>みんなのブログ</div>
-          <hr>
+          <h2 class="mb-3"><i class="fas fa-map-marker-alt mr-2"></i>みんなのブログ</h2><hr>
           <div class="text-center">
-            <div class="card-columns">
-              <?php
-                ini_set( 'display_errors', 1 );
-                ini_set( 'error_reporting', E_ALL );
-                date_default_timezone_set('Asia/Tokyo');
-                $date = date("Y/m/d H:i:s");
-                $years  = date("Y");
-                $months = date("m");
-                $days   = date("d");
-                $filepath = $_SERVER['DOCUMENT_ROOT'].'/archive';
-
-                $years_array = str_replace($_SERVER['DOCUMENT_ROOT'].'/archive/','',glob("{$filepath}/*"));
-
-                $months_array = [];
-                for($i=0; $i<count($years_array); $i++) {
-                  $months_array[$i] = str_replace($_SERVER['DOCUMENT_ROOT']."/archive/{$years_array[$i]}/",'',glob("{$filepath}/{$years_array[$i]}/*"));
-                }
-
-                $days_array = [];
-                for($i=0; $i<count($years_array); $i++) {
-                  for($j=0; $j<count($months_array[$i]); $j++){
-                    $days_array[$i][$j] = str_replace($_SERVER['DOCUMENT_ROOT']."/archive/{$years_array[$i]}/{$months_array[$i][$j]}/",'',glob("{$filepath}/{$years_array[$i]}/{$months_array[$i][$j]}/*"));
-                  }
-                }
-
-                for($i=0; $i<count($days_array); $i++){
-                  if(empty($days_array[$i])) continue;
-                  for($j=0; $j<count($days_array[$i]); $j++){
-                    if(empty($days_array[$i][$j])) continue;
-                    for($k=0; $k<count($days_array[$i][$j]); $k++){
-                      if(empty($days_array[$i][$j][$k])) continue;
-
-                      $file_index_path = $_SERVER['DOCUMENT_ROOT']."/archive/{$years_array[$i]}/{$months_array[$i][$j]}/{$days_array[$i][$j][$k]}/index.json";
-                      $file_blog_path  = $_SERVER['DOCUMENT_ROOT']."/archive/{$years_array[$i]}/{$months_array[$i][$j]}/{$days_array[$i][$j][$k]}";
-                      if (file_exists($file_index_path)) {
-                        $json = file_get_contents($file_index_path);
-
-                        // 文字化けを防ぐコード
-                        $json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
-                        $arr = json_decode($json, true);
-
-                        for($loop=0; $loop<count($arr); $loop++) {
-                        ?>
-                        <div class="card border-1 border-secondary m-0 p-0 mb-2">
-                          <div class="card-body">
-                            <h4 class="card-title text-left text-dark"><?php echo "{$arr[$loop]["blogTitle"]}"; ?></h4><hr>
-                            <p class="card-text text-dark text-left"><i class="far fa-calendar-alt mr-2"></i><?php echo "{$arr[$loop]["date"]}"; ?></p>
-                            <sapn class="card-text text-dark">
-                              <?php
-                              $filename = $arr[$loop]["fileName"];
-                              $path = $file_blog_path."/{$filename}.json";
-                              $body_json = file_get_contents($path);
-                              // 文字化けを防ぐコード
-                              $body_json = mb_convert_encoding($body_json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
-                              $body_arr = json_decode($body_json, true);
-                              $str = strip_tags($body_arr[0]["blogSentence"]);
-                              $str = $charH->blog_body_replacement($str);
-                              $str = substr($str,0,200);
-                              echo"{$str}";
-                              ?>
-                            </span>
-
-
-                            <hr>
-                            <div class="float-left">タグ：
-                      <?php for($tag_loop=0; $tag_loop<count($arr[$loop]["blogTag"][0]); $tag_loop++){ ?>
-                              <a href="#" class="text-white bg-secondary rounded px-1"><?php echo "{$arr[$loop]["blogTag"][0][$tag_loop]}"; ?></a>
-                      <?php } ?>
-                            </div><br>
-                            <p class="card-text text-right"><a href="/blog/blog-viwer.php?f=<?php echo"/{$years_array[$i]}/{$months_array[$i][$j]}/{$days_array[$i][$j][$k]}/{$arr[$loop]["fileName"]}"; ?>">続きを見る>></a></p>
-                          </div>
-                        </div>
-
-              <?php
-                        }
-                      }
-                    }
-                  }
-                }
-
-              ?>
-            </div>
-            <div class="text-left"><button type="button" id="newBlogButton" class="btn btn-secondary col-md-4 mb-3">ブログを書く</button></div>
-            </div>
+            <img src="/img/koji.svg" width="256" height="256">
+            <h3 style="color:rgb(75,75,75)">ただいま工事中</h3>
           </div>
+        </div>
         </div>
     <!-- /.container -->
   </div>
