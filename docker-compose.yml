@@ -7,17 +7,4 @@ services:
     container_name: apache2
     volumes:
       - ./src:/var/www/html
-
-  # db:
-  #   image: postgres:12.3-alpine
-  #   container_name: postgres
-  #     - "5432:5432"
-  #   environment:
-  #     TZ: "Asia/Tokyo"
-  #     LANG: ja_JP.utf8
-  #     POSTGRES_USER: test
-  #     POSTGRES_PASSWORD: test
-  #     POSTGRES_DB: test
-  #   volumes:
-  #     - ./docker/db:/var/lib/psql
-  #     - ./docker/db/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      
