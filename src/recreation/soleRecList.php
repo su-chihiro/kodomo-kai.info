@@ -152,7 +152,6 @@
             </table>
 
             <button type="button" class="btn btn-secondary btn-lg btn-lock col-md-4 col-sm-12 my-4 mr-auto" value="" name="submit" id="newTopicButton">レクを追加する</button>
-            <!-- <button type="button" class="btn btn-secondary btn-lg col-md-4 col-sm-12 my-4 mr-auto" value="" name="submit" id="info">ユーザー情報</button> -->
 
             <!-- <form class="needs-validation new-topic-form px-3 pt-2 border-1 border-secondary rounded" novalidate id="newTopicForm" name="newtopicform" action="./rec_preview.php" method="POST" onSubmit="return check()"> -->
             <div class="needs-validation new-topic-form px-3 pt-2 border-1 border-secondary mb-3 rounded" novalidate id="newTopicForm">

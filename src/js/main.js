@@ -1,28 +1,16 @@
-// Initialize Firebase
-// Firebase Project kodomo-kai
-// var config = {
-//   apiKey: "AIzaSyACrEUjxV5NVM9hzTvYaT_aPxJ0NSpAm8k",
-//   authDomain: "kodomo-kai.firebaseapp.com",
-//   databaseURL: "https://kodomo-kai.firebaseio.com",
-//   projectId: "kodomo-kai",
-//   storageBucket: "kodomo-kai.appspot.com",
-//   messagingSenderId: "533345737538"
-// };
-// firebase.initializeApp(config);
-
 // Firebase Project sample
 // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyC3baEIaKTilZea0Og8W9O1DJM8l10fyt8",
-    authDomain: "sample-8a460.firebaseapp.com",
-    databaseURL: "https://sample-8a460.firebaseio.com",
-    projectId: "sample-8a460",
-    storageBucket: "sample-8a460.appspot.com",
-    messagingSenderId: "23145969282"
-  };
-  firebase.initializeApp(config);
+let config = {
+  apiKey: "AIzaSyC3baEIaKTilZea0Og8W9O1DJM8l10fyt8",
+  authDomain: "sample-8a460.firebaseapp.com",
+  databaseURL: "https://sample-8a460.firebaseio.com",
+  projectId: "sample-8a460",
+  storageBucket: "sample-8a460.appspot.com",
+  messagingSenderId: "23145969282"
+};
+firebase.initializeApp(config);
 
-var Messages = {
+const Messages = {
   "INVALID_EMAIL": "・メールアドレスが正しく入力されていません\n",
   "INVALID_PASSWORD": "・パスワードが正しく入力されていません\n",
   "INVALID_PASSWORD_MACTH": "・パスワードが一致しません\n",
@@ -38,12 +26,12 @@ var Messages = {
 };
 
 // Firebase認証時エラーコード
-var ErrorCodes = {
+const ErrorCodes = {
   "INVALID_EMAIL": "auth/invalid-email",
   "INVALID_PASSWORD": "auth/weak-password"
 };
 
-var Filepath = {
+const Filepath = {
   "USERS":"/users/users.json",
   "PREF_CITY":"/lib/pref_city.json",
 };
@@ -75,13 +63,13 @@ function char2unicode(text) {
 }
 
 function txt2hash(hashType, text){
-  var shaObj  = new jsSHA(hashType, 'TEXT');
+  let shaObj  = new jsSHA(hashType, 'TEXT');
   shaObj.update(text);
   return shaObj.getHash("HEX");;
 }
 
 function sleep(waitMsec) {
-  var startMsec = new Date();
+  let startMsec = new Date();
 
   // 指定ミリ秒間だけループさせる（CPUは常にビジー状態）
   while (new Date() - startMsec < waitMsec);
@@ -93,18 +81,18 @@ function userInfo() {
 }
 
 function date(){
-  var date = new Date();
-  var year = date.getFullYear();
-  var month = date.getMonth()+1;
-  var day = date.getDate();
-  var hour = date.getHours();
-  var minute = ('0' + date.getMinutes()).slice(-2)
-  var second = ('0' + date.getSeconds()).slice(-2);
+  let date = new Date();
+  let year = date.getFullYear();
+  let month = date.getMonth()+1;
+  let day = date.getDate();
+  let hour = date.getHours();
+  let minute = ('0' + date.getMinutes()).slice(-2)
+  let second = ('0' + date.getSeconds()).slice(-2);
   return year+"/"+month+"/"+day+" "+hour+":"+minute+":"+second;
 }
 
 function getUniqueStr(myStrong) {
-  var strong = 1000;
+  let strong = 1000;
   if (myStrong) strong = myStrong;
   return new Date().getTime().toString(16)  + Math.floor(strong*Math.random()).toString(16)
 }
@@ -115,7 +103,7 @@ function isEmpty(obj){
 
 // ユーグリッドの互除法
 function gcm(width, height){
-  var big, small, tmp;
+  let big, small, tmp;
   if(width > height){
     big = width;
     small = height;
@@ -140,8 +128,8 @@ function gcm(width, height){
     }
   }
   // smallが最大公約数になる
-  var aspW = width / small;
-  var aspH = height / small;
+  let aspW = width / small;
+  let aspH = height / small;
   data = {
     "aspWidth": aspW,
     "aspHeight": aspH,
@@ -160,7 +148,7 @@ function gcm(width, height){
 function getParam(name, url) {
     // if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+    let regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
         results = regex.exec(url);
     if (!results) return null;
     if (!results[2]) return '';
@@ -168,299 +156,45 @@ function getParam(name, url) {
 }
 
 // ログインしているかの確認
-function userLoginNew() {
-  status = true;
-  firebase.auth().onAuthStateChanged(function(user) {
-    // console.log(user);
-    if (user !== null) {
-      // console.log('not NULL');
-
-    } else {
-      // console.log('yes NULL');
-      status = false;
-    }
-  })
-  // console.log(status);
-  return status;
+function userLoginNow() {
+  var user = firebase.auth().currentUser;
+  if (user) {
+    return true;
+  } else {
+    return false;
+  }
 }
-
-/*
-if (userLoginNew()) {
-  // ログインしているときの処理
-}
-else {
-  // ログインしていないときの処理
-  $('// classかidを指定する').notify("ログインが必要です",
-  {
-    className:"warn",
-    position:"top center"
-  });
-}
-*/
 
 // // ドキュメント読み込み完了時
 $(document).ready(function() {
-  $('input[id=profileIcon]').on('change', function(e) {
-      var user = userInfo();
-      var uid  = user["uid"];
-      var msg = "";
-
-      // msgが空じゃないとき（エラーが発生しているとき）
-      if(msg !== "") {
-        // メッセージがある場合ユーザーに通知する
-        $.notify(msg, "warn");
-      } else {
-        var xhr = new XMLHttpRequest;
-        xhr.open('GET', Filepath.USERS, true);
-        xhr.onload = function() {
-          var users = JSON.parse(this.responseText);
-          var users_id = users[0][uid]['id'];
-          var nickname = users[0][uid]['nickName'];
-          // フォームデータを取得
-          var formdata = new FormData($('#profileIconUpload').get(0));
-          // POSTでアップロード
-          $.ajax({
-              url  : "imageSave.php",
-              type : "POST",
-              data : formdata,
-              cache       : false,
-              contentType : false,
-              processData : false,
-              dataType    : "html"
-          })
-          .done(function(data, textStatus, jqXHR){
-            // プロフィールのアイコンにしたい画像がアップできたら
-            $.ajax({
-              type: 'POST',
-              url:  '/imageMove.php',
-              async: false,
-              dataType: 'json',
-              cache : false,
-              data: {
-                "userID": users_id,
-              }
-            })
-            // Ajaxリクエストが成功した時発動
-            .done( (data) => {
-              // 作成しトピックにリダイレクトする
-              console.log("data", data);
-              console.log("2.成功しました");
-              var target = document.getElementById('insertCropper');
-              $('#insertCropper').empty();
-              // var target = document.getElementById('insertCropper');
-              target.insertAdjacentHTML(
-                'afterbegin',
-                '<a id="getData" class="btn btn-primary mb-3">Get Data</a>'
-               +'<div class="cropper-example-1">'
-               +'<img id="img" class="img-responsive" src="./img/users_img/'+users_id+'/profile_icon.png" alt="">'
-               +'</div>'
-              );
-
-              // init
-              // class='cropper-example-1のimgタグに適用'
-              var $image = $('.cropper-example-1 > img').replaced;
-              var body_width = document.getElementById('tmp').clientWidth;
-              // var h = document.getElementById('tmp').clientheight;
-              alert('Hello05');
-
-              var path = "/img/profile_icon.png";
-              var element = new Image();
-              alert('Hello0');
-
-              element.onload = function (){
-                alert('Hello1');
-
-                var width = element.naturalWidth;
-                var height = element.naturalHeight;
-                var short, long;
-
-                asp = gcm(width, height);
-                aspW = asp['aspWidth'];
-                aspH = asp['aspHeight'];
-                alert('Hello2');
-
-                var par = 0;
-                if(aspW > aspH){
-                  var tmp = width;
-                  while(body_width < width){
-                    width -= aspW;
-                  }
-                  par = width / tmp;
-                  height *= par;
-                } else {
-                  var tmp = height;
-                  while(body_width/aspW*aspH < height){
-                    height -= aspH;
-                  }
-                  par = height / tmp;
-                  width *= par;
-                }
-
-                $('#img').cropper({
-                  // ここでアスペクト比の調整 ワイド画面にしたい場合は 16 / 9
-                  aspectRatio: 1 / 1,
-                  autoCropArea: 1.0,
-                  minCropBoxWidth: 50,
-                  minCropBoxHeight: 50,
-                  // 4:3  450:600
-                  minContainerWidth: width-30,
-                  minContainerHeight: height,
-
-                  setDragMode: 'crop',
-                });
-
-
-                alert('Hello');
-              }
-
-              element.src = path;
-
-
-            })
-            // Ajaxリクエストが失敗した時発動
-            .fail( (data) => {
-              // $.ajax(this);
-              console.log("data", data);
-              console.log("2.失敗しました");
-
-            })
-            // Ajaxリクエストが成功・失敗どちらでも発動
-            .always( (data) => {
-              // console.log("2.どちらでも実行されます");
-            });
-          })
-          .fail(function(jqXHR, textStatus, errorThrown){
-            console.log(jqXHR);
-            console.log("fail");
-          });
-
-        }
-        xhr.send(null);
-      }
-
-
-
-
-
-  });
-
-
-  //指定要素が変更された時
-  // $('#file-image').change(function(e){
-  //     var img = new Image();
-  // 	var reader = new FileReader();
-  // 	var file = this.files[0];
-  //
-  // 	if (!file.type.match(/^image\/(bmp|png|jpeg|gif)$/)){
-  // 		alert("対応画像ファイル[bmp|png|jpeg|gif]");
-  // 		return;
-  // 	}
-  //
-  // 	reader.onload = function(event){
-  // 		img.onload = function(){
-  // 			var data = {data:img.src.split(',')[1]};
-  // 			//ここ({
-  // 				type: 'POST',
-  // 				url: './add-image.php',
-  // 				data: data,
-  // 				success: function(data, dataType){
-  // 					if(data == 'OK'){
-  // 						alert("アップロード出来ました！");
-  // 					}
-  // 				}
-  // 			});
-  // 		img.src = event.target.result;
-  // 	};
-  //
-  // 	reader.readAsDataURL(file);
-  // });
-
-
-
-
-
-
-  // getDataボタンが押された時の処理
-  $('#getData').on('click', function(){
-
-     // crop のデータを取得
-     var data = $('#img').cropper('getData');
-
-     // 切り抜きした画像のデータ
-     // このデータを元にして画像の切り抜きが行われます
-     var image = {
-       width: Math.round(data.width),
-       height: Math.round(data.height),
-       x: Math.round(data.x),
-       y: Math.round(data.y),
-       _token: 'jf89ajtr234534829057835wjLA-SF_d8Z' // csrf用
-      };
-
-      // $.ajax({
-      //   type: 'POST',
-      //   url:  '/blog/blogAddData.php',
-      //   async: false,
-      //   dataType: 'json',
-      //   cache : false,
-      //   data: data
-      // })
-      // // Ajaxリクエストが成功した時発動
-      // .done( (data) => {
-      //   // 作成しトピックにリダイレクトする
-      //   console.log("data", data);
-      //   console.log("2.成功しました");
-      //   window.location.reload();
-      // })
-      // // Ajaxリクエストが失敗した時発動
-      // .fail( (data) => {
-      //   // $.ajax(this);
-      //   // console.log("data", data);
-      //   // console.log("2.失敗しました");
-      //   target.innerHTML = data['responseText'];
-      //
-      // })
-      // // Ajaxリクエストが成功・失敗どちらでも発動
-      // .always( (data) => {
-      //   // console.log("2.どちらでも実行されます");
-      // });
-
-      console.log(image);
-     // post 処理
-     $.post('/app', image, function(res){
-       // 成功すれば trueと表示されます
-       console.log(res);
-     });
-
-  });
-
   $('#newBlogBuildBtn').on('click', function(){
-    var blogTitle = char2unicode(document.getElementById('blogTitle').textContent);
+    let blogTitle = char2unicode(document.getElementById('blogTitle').textContent);
     console.log("blogTitle", blogTitle);
 
-    var blogTag = char2unicode(document.getElementById('blogTag').value);
+    let blogTag = char2unicode(document.getElementById('blogTag').value);
     console.log("blogTag", blogTag);
 
-    var blogSentence = document.getElementsByClassName("ql-editor ql-blank");
+    let blogSentence = document.getElementsByClassName("ql-editor ql-blank");
     console.log("blogSentence", blogSentence[0]['innerHTML']);
-    var user = userInfo();
-    var uid  = user["uid"];
-    var filename = getUniqueStr();
+    let user = userInfo();
+    let uid  = user["uid"];
+    let filename = getUniqueStr();
     console.log(uid);
-    var msg = "";
+    let msg = "";
 
     // msgが空じゃないとき（エラーが発生しているとき）
     if(msg !== "") {
       // メッセージがある場合ユーザーに通知する
       $.notify(msg, "warn");
     } else {
-      var xhr = new XMLHttpRequest;
+      let xhr = new XMLHttpRequest;
       xhr.open('GET', Filepath.USERS, true);
       xhr.onload = function() {
-        var users = JSON.parse(this.responseText);
-        var users_id = users[0][uid]['id'];
-        var nickname = users[0][uid]['nickName'];
+        let users = JSON.parse(this.responseText);
+        let users_id = users[0][uid]['id'];
+        let nickname = users[0][uid]['nickName'];
         console.log('nickname',nickname);
-        var data = {
+        let data = {
           "blogTitle": blogTitle,
           "blogSentence": blogSentence[0]['innerHTML'],
           "filename": filename,
@@ -501,17 +235,17 @@ $(document).ready(function() {
     }
   });
 
-  var blogTitleFlg = false;
-  var blogTitleStr = "";
+  let blogTitleFlg = false;
+  let blogTitleStr = "";
   $(document).on('click', function(event) {
-    var clicked_id = event['target'].id;
+    let clicked_id = event['target'].id;
     console.log(clicked_id);
 
     if(clicked_id == 'blogTitle'){
       blogTitleStr = $('#blogTitle').text();
       // console.log("blogTitleStr",blogTitleStr);
       $('#blogTitle').empty();
-      var target = document.getElementById('blogTitle');
+      let target = document.getElementById('blogTitle');
 
       target.insertAdjacentHTML('afterbegin','<input type="text" class="form-control" value="" id="blogTitleVal">');
 
@@ -529,36 +263,35 @@ $(document).ready(function() {
       // 処理はしない
     } else {
       if (blogTitleFlg){
-        var target = document.getElementById('blogTitleVal');
+        let target = document.getElementById('blogTitleVal');
         if (isEmpty(target.value)){
           $('#blogTitle').empty();
-          var target = document.getElementById('blogTitle');
+          let target = document.getElementById('blogTitle');
           target.insertAdjacentHTML('afterbegin', 'タイトルが空です');
         } else {
-          var blogTitleVal = document.getElementById('blogTitleVal');
-          var str = char2unicode(blogTitleVal.value);
+          let blogTitleVal = document.getElementById('blogTitleVal');
+          let str = char2unicode(blogTitleVal.value);
           // console.log("str",str);
           $('#blogTitle').empty();
-          var target = document.getElementById('blogTitle');
+          let target = document.getElementById('blogTitle');
           target.insertAdjacentHTML('afterbegin', str);
         }
         blogTitleFlg = false;
       }
     }
-
   });
 
   $('#recCommentAddBtn').on('click', function() {
-    var url = location.href;
+    let url = location.href;
     url = url.replace(location.protocol + "//" + location.host + "/recreation/rec-viwer.php?", "");
-    var p = url.charAt(2);
-    var f = url.replace("p="+p+"&f=", "");
-    var sentence = document.getElementById('Sentence').value;
-    var user = userInfo();
-    var uid  = user["uid"];
-    var dt = date();
-    var msg = "";
-    var target = document.getElementById('insert');
+    let p = url.charAt(2);
+    let f = url.replace("p="+p+"&f=", "");
+    let sentence = document.getElementById('Sentence').value;
+    let user = userInfo();
+    let uid  = user["uid"];
+    let dt = date();
+    let msg = "";
+    let target = document.getElementById('insert');
     target.innerHTML = '';
 
     // msgが空じゃないとき（エラーが発生しているとき）
@@ -566,13 +299,13 @@ $(document).ready(function() {
       // メッセージがある場合ユーザーに通知する
       $.notify(msg, "warn");
     } else {
-      var xhr = new XMLHttpRequest;
+      let xhr = new XMLHttpRequest;
       xhr.open('GET', Filepath.USERS, true);
       xhr.onload = function() {
-        var users = JSON.parse(this.responseText);
-        var users_id = users[0][uid]['id'];
-        var nickname = users[0][uid]['nickName'];
-        var data = {
+        let users = JSON.parse(this.responseText);
+        let users_id = users[0][uid]['id'];
+        let nickname = users[0][uid]['nickName'];
+        let data = {
           "sentence": sentence,
           "foldernum": p,
           "filename": f,
@@ -613,88 +346,21 @@ $(document).ready(function() {
     }
   });
 
-  $('#delButton').on('click', function(){
-    var checkedList = [];
-    var data = [];
-    var cnt = 0;
-    var formLen = document.form1.length;
-    console.log("formLen",formLen);
-    if(formLen > 1){
-      for (var i=0; i<formLen; i++) {
-        console.log('AAAAA');
-        if (document.form1[i].checkbox.checked) {
-          checkedList.push(i);
-          var obj = document.getElementById("recLink"+i);
-          var linkParamFileID = getParam("f", obj.href);
-          var linkParamPageID = getParam("p", obj.href);
-          data.push({linkParamFileID, linkParamPageID});
-        }
-      }
-    } else {
-      if (document.form1.checkbox.checked) {
-        console.log('BBBBB');
-        checkedList.push(0);
-        var obj = document.getElementById("recLink"+0);
-        var linkParamFileID = getParam("f", obj.href);
-        var linkParamPageID = getParam("p", obj.href);
-        data.push({linkParamFileID, linkParamPageID});
-      }
-    }
-
-    console.log(checkedList);
-    console.log(data);
-    var aryJson = JSON.stringify(data);
-
-    var target = document.getElementById('insert');
-    target.innerHTML = '';
-
-    $.ajax({
-      type: 'POST',
-      url:  '/auth/auth-rec-del.php',
-      async: false,
-      dataType: 'json',
-      cache : false,
-      data: { Ary : aryJson }
-    })
-    // Ajaxリクエストが成功した時発動
-    .done( (data) => {
-      // 作成しトピックにリダイレクトする
-      console.log("data", data);
-      console.log("2.成功しました");
-      window.location.reload();
-    })
-    // Ajaxリクエストが失敗した時発動
-    .fail( (data) => {
-      // $.ajax(this);
-      console.log("data", data);
-      console.log("2.失敗しました");
-      target.innerHTML = data['responseText'];
-
-    })
-    // Ajaxリクエストが成功・失敗どちらでも発動
-    .always( (data) => {
-      // console.log("2.どちらでも実行されます");
-    });
-
-    // window.location.reload();
-
-  });
-
   $('#newRecBuildBtn').on('click', function(){
-    var recTitle = document.getElementById('recTitle').value;
-    var targetNum = document.getElementById('targetPeopleNum').value;
-    var targetAge = document.getElementById('targetAge').value;
-    var timeRequired = document.getElementById('timeRequired').value;
-    var youtubeURL = document.getElementById('youtubeURL').value;
-    var sentence = document.getElementById('Sentence').value;
-    var filenum = document.getElementById('fileNum').value;
-    var filename = getUniqueStr();
+    let recTitle = document.getElementById('recTitle').value;
+    let targetNum = document.getElementById('targetPeopleNum').value;
+    let targetAge = document.getElementById('targetAge').value;
+    let timeRequired = document.getElementById('timeRequired').value;
+    let youtubeURL = document.getElementById('youtubeURL').value;
+    let sentence = document.getElementById('Sentence').value;
+    let filenum = document.getElementById('fileNum').value;
+    let filename = getUniqueStr();
 
-    var user = userInfo();
-    var uid = user['uid'];
-    var dt = date();
-    var msg = "";
-    var nickname = "";
+    let user = userInfo();
+    let uid = user['uid'];
+    let dt = date();
+    let msg = "";
+    let nickname = "";
 
     if (recTitle == "") {
       msg += "・レク名が入力されていません\n";
@@ -721,12 +387,12 @@ $(document).ready(function() {
         // メッセージがある場合ユーザーに通知する
         $.notify(msg, "warn");
     } else {
-      var xhr = new XMLHttpRequest;
+      let xhr = new XMLHttpRequest;
       xhr.open('GET', Filepath.USERS, true);
       xhr.onload = function(){
-        var users = JSON.parse(this.responseText);
+        let users = JSON.parse(this.responseText);
         // console.log(users);
-        var users_id = users[0][uid]['id'];
+        let users_id = users[0][uid]['id'];
         nickname = users[0][uid]['nickName'];
         $.ajax({
           type: 'POST',
@@ -802,22 +468,15 @@ $(document).ready(function() {
     }
   });
 
-  $('#info').on('click', function(){
-    var user = userInfo();
-    console.log(user['uid']);
-  });
-
   $('#newCommentAdd').on('click', function() {
-    // ログインしているかの確認
-    // console.log('736:'+userLoginNew());
-    if (userLoginNew()) {
-      var sentence   = document.getElementById('Sentence').value;
-      var filename   = document.getElementById('fileName').value;
-      var user = userInfo();
-      var uid = user['uid'];
-      var dt = date();
-      var msg = "";
-      var nickname = "";
+    if (userLoginNow()) {
+      let sentence = document.getElementById('Sentence').value;
+      let filename = document.getElementById('fileName').value;
+      let user = userInfo();
+      let uid = user['uid'];
+      let dt = date();
+      let msg = "";
+      let nickname = "";
 
       if (sentence == "") {
           msg += Messages.INVALID_SENTENCE;
@@ -827,10 +486,10 @@ $(document).ready(function() {
         // メッセージがある場合ユーザーに通知する
         $.notify(msg, "warn");
       } else {
-        var xhr = new XMLHttpRequest;
+        let xhr = new XMLHttpRequest;
         xhr.open('GET', Filepath.USERS, true);
         xhr.onload = function(){
-          var users = JSON.parse(this.responseText);
+          let users = JSON.parse(this.responseText);
           nickname = users[0][uid]['nickName'];
           id = users[0][uid]['id'];
         $.ajax({
@@ -879,27 +538,23 @@ $(document).ready(function() {
   });
 
   $('#Btn').on('click', function() {
-      var user = userInfo();
-      var uid = user['uid'];
-      // console.log(user);
-      // $('#addTopic').append('<td scope=\"row\" class=\"d-none d-sm-table-cell\">2018/10/15 11:41:51</td><td class=\"text-dark\">福岡工業大学のトピックス</td><td class=\"text-center\">20</td><td class=\"d-none d-sm-table-cell\">0.005</td>');
-
-      // console.log("uid",uid);
-      var nickname = userSearch(uid, 'nickName');
+      let user = userInfo();
+      let uid = user['uid'];
+      let nickname = userSearch(uid, 'nickName');
       console.log(nickname);
   });
 
   // bulletin-board-top.php：
   $('#newTopicBuildBtn').on('click', function(){
-    var topicTitle = document.getElementById('topicTitle').value;
-    var sentence   = document.getElementById('Sentence').value;
-    var filename   = getUniqueStr();
-    var user = userInfo();
-    var uid = user['uid'];
-    var id = "";
-    var dt = date();
-    var msg = "";
-    var nickname = "";
+    let topicTitle = document.getElementById('topicTitle').value;
+    let sentence   = document.getElementById('Sentence').value;
+    let filename   = getUniqueStr();
+    let user = userInfo();
+    let uid = user['uid'];
+    let id = "";
+    let dt = date();
+    let msg = "";
+    let nickname = "";
 
     if (topicTitle == "") {
         msg += Messages.INVALID_TITLE;
@@ -913,13 +568,13 @@ $(document).ready(function() {
         // メッセージがある場合ユーザーに通知する
         $.notify(msg, "warn");
     } else {
-      var target = document.getElementById('insert');
+      let target = document.getElementById('insert');
       target.innerHTML = '';
 
-      var xhr = new XMLHttpRequest;
+      let xhr = new XMLHttpRequest;
       xhr.open('GET', Filepath.USERS, true);
       xhr.onload = function(){
-        var users = JSON.parse(this.responseText);
+        let users = JSON.parse(this.responseText);
         console.log(user);
         id = users[0][uid]['id'];
 
@@ -957,16 +612,16 @@ $(document).ready(function() {
   });
 
   $('#delUserBtn').on('click', function(){
-    var user = userInfo();
-    var uid = user['uid'];
-    var msg  = "";
-    var passwd = document.getElementById('passwd').value;
-    var hash   = txt2hash('SHA-256', passwd);
+    let user = userInfo();
+    let uid = user['uid'];
+    let msg  = "";
+    let passwd = document.getElementById('passwd').value;
+    let hash   = txt2hash('SHA-256', passwd);
 
-    var xhr = new XMLHttpRequest;
+    let xhr = new XMLHttpRequest;
     xhr.open('GET', Filepath.USERS, true);
     xhr.onload = function(){
-      var users = JSON.parse(this.responseText);
+      let users = JSON.parse(this.responseText);
       if(users[0][uid]['hash'] == hash){
         console.log("パスワードが一致しました");
         // モーダルでアカウントを消すかの最終確認Yes/Noボタンを表示する
@@ -993,23 +648,23 @@ $(document).ready(function() {
   // signuo.php：送信ボタンを押したときの処理
   // ユーザ情報をjsonで保存する
   $('#signupSubmitBtn').on('click' ,function() {
-    var nickNameVal = document.getElementById('nickName').value;
-    var prefVal     = document.getElementById('Pref').value;
-    var cityVal     = document.getElementById('City').value;
-    var prefName;
-    var cityName;
-    var emailVal    = document.getElementById('emailAddress').value;
-    var passwdVal   = document.getElementById('passwd').value;
-    // var repasswdVal   = document.getElementById('repasswd').value;
-    var hash = txt2hash('SHA-256', passwdVal);
+    let nickNameVal = document.getElementById('nickName').value;
+    let prefVal     = document.getElementById('Pref').value;
+    let cityVal     = document.getElementById('City').value;
+    let prefName;
+    let cityName;
+    let emailVal    = document.getElementById('emailAddress').value;
+    let passwdVal   = document.getElementById('passwd').value;
+    // let repasswdVal   = document.getElementById('repasswd').value;
+    let hash = txt2hash('SHA-256', passwdVal);
 
-    var xhr = new XMLHttpRequest;
+    let xhr = new XMLHttpRequest;
     xhr.open('GET', '/lib/pref_city.json', true);
     xhr.onload = function(){
-      var myData = JSON.parse(this.responseText);
-      var PrefNum = 47;
+      let myData = JSON.parse(this.responseText);
+      let PrefNum = 47;
       prefName = myData[0][prefVal]['name'];
-      var i = 0;
+      let i = 0;
       while(myData[0][prefVal]['city'][i]['citycode'] != cityVal){
         i++;
       }
@@ -1017,7 +672,7 @@ $(document).ready(function() {
     }
     xhr.send(null);
 
-    var msg = "";
+    let msg = "";
     // ニックネームの入力チェック
     if (!(nickNameVal != "" && nickNameVal.length > 0)) {
         msg = Messages.INVALID_NICKNAME;
@@ -1062,9 +717,9 @@ $(document).ready(function() {
           * パスワードはsha256でハッシュ化した値を保存する
           */
 
-          var uid = user['user']['uid'];
-          var host = location.host;
-          var id = txt2hash('SHA-256', getUniqueStr());
+          let uid = user['user']['uid'];
+          let host = location.host;
+          let id = txt2hash('SHA-256', getUniqueStr());
           console.log("id",id);
           $.ajax({
             type:'POST',
@@ -1113,7 +768,7 @@ $(document).ready(function() {
 
             $('.result').html(data);
             $('.topic-form').fadeOut(1000, function() {
-              var target = document.getElementById('userNickName');
+              let target = document.getElementById('userNickName');
               target.innerHTML = nickNameVal;
               $('#newLoginiew').fadeIn(1000);
             });
@@ -1128,10 +783,10 @@ $(document).ready(function() {
 
         }).catch(function(error) {
             // Firebaseでエラーが発生した場合
-            var errorCode = error.code;
-            var errorMessage = error.message;
+            let errorCode = error.code;
+            let errorMessage = error.message;
 
-            var firebaseErrorMsg = "";
+            let firebaseErrorMsg = "";
 
             // メールアドレスが不正
             if (errorCode === ErrorCodes.INVALID_EMAIL) {
@@ -1154,60 +809,31 @@ $(document).ready(function() {
     }
   });
 
-  // // signup.php：都道府県のselectを変えたときにする処理
-  // var xhr = new XMLHttpRequest;
-  // xhr.open('GET', '/lib/pref_city.json', true);
-  // xhr.onload = function(){
-  //   var myData = JSON.parse(this.responseText);
-  //   var PrefNum = 47;
-  //   for(var i = 1; i <= PrefNum; i++){
-  //     var prefNum = ('00' + i).slice(-2);
-  //     $('#Pref').append("<option value=" + myData[0][prefNum]['id'] + ">" + myData[0][prefNum]['name'] + "</option>");
-  //   }
-  // }
-  // xhr.send(null);
-
   // signup.php：都道府県を変えたときに表示する市区を変える
   $('#Pref').change((function(){
     $('select#City option').remove();
     $('#City').append("<option value=\"0\">--- 市区を選択してください ---</option>");
-    var prefNum = document.getElementById('Pref').value;
+    let prefNum = document.getElementById('Pref').value;
     if(prefNum == 0){
       $('#City').prop('disabled', true);
     } else {
       $('#City').prop('disabled', false);
     }
 
-    var prefVal = $('#Pref option:selected').val();
-    var xhr = new XMLHttpRequest;
+    let prefVal = $('#Pref option:selected').val();
+    let xhr = new XMLHttpRequest;
     xhr.open('GET', '/lib/pref_city.json', true);
     xhr.onload = function(){
-      var myData = JSON.parse(this.responseText);
-      var cityNum = myData[0][prefVal]['city'].length;
+      let myData = JSON.parse(this.responseText);
+      let cityNum = myData[0][prefVal]['city'].length;
       // cityNum：選択した都道府県にある市区の数
       // prefVal：選択した都道府県の番号
-      for(var j = 0; j < cityNum; j++){
+      for(let j = 0; j < cityNum; j++){
         $('#City').append("<option value=" + myData[0][prefVal]['city'][j]['citycode'] + ">" + myData[0][prefVal]['city'][j]['city'] + "</option>");
       }
     }
     xhr.send(null);
   }));
-
-  // $(function() {
-  //     var $slider = $("#bxslider0");
-  //         $slider.bxSlider({
-  //             auto: true,
-  //             infiniteLoop: true,
-  //             pause: 8000,
-  //             speed: 700,
-  //             slideWidth: 500,
-  //             minSlides: 3,
-  //             maxSlides: 3,
-  //             moveSlides: 1,
-  //             slideMargin: 20
-  //         });
-  // });
-    // $('.slider').bxSlider();
 
     // ログインしているかの確認
     firebase.auth().onAuthStateChanged(function(user) {
@@ -1261,9 +887,9 @@ $(document).ready(function() {
       firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
           // リダイレクトを行うコード
-          var redirect_url = '/blog/blog-write-test.php';// + location.search;
+          let redirect_url = '/blog/blog-write-test.php';// + location.search;
           // if (document.referrer) {
-          //   var referrer = "referrer=" + encodeURIComponent(document.referrer);
+          //   let referrer = "referrer=" + encodeURIComponent(document.referrer);
           //   redirect_url = redirect_url + (location.search ? '&' : '?') + referrer;
           // }
           location.href = redirect_url;
@@ -1280,7 +906,7 @@ $(document).ready(function() {
     });
 
     $('.res').on('click',function(){
-      var num = $(this).data('res') + 1;
+      let num = $(this).data('res') + 1;
       $('.new-topic-form').slideToggle(600);
       document.getElementById("Sentence").focus();
       document.getElementById("Sentence").value = ">>"+num+"\n";
@@ -1297,51 +923,23 @@ $(document).ready(function() {
       });
     });
 
-    $('.tw_login').on('click', function() {
-      var provider = new firebase.auth.TwitterAuthProvider();
-      console.log(provider);
-      firebase.auth().signInWithPopup(provider).then(function(result) {
-        // This gives you a the Twitter OAuth 1.0 Access Token and Secret.
-        // You can use these server side with your app's credentials to access the Twitter API.
-        var token = result.credential.accessToken;
-        var secret = result.credential.secret;
-        // The signed-in user info.
-        var user = result.user;
-        // ...
-        alert('asdfghjkl');
-      }).catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // The email of the user's account used.
-        var email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        var credential = error.credential;
-        // ...
-        console.log(error);
-        alert('zxcvbnm,.');
-      });
-
-
-    });
-
     // ログインボタン押下時処理
     $('#Login').on('click',function() {
         // emailとpasswordをinputから取得する
-        var email = $('#modalEmailAddress').val();
-        var password = $('#modalPassword').val();
+        let email = $('#modalEmailAddress').val();
+        let password = $('#modalPassword').val();
         firebase.auth().signInWithEmailAndPassword(email, password).then(function(user) {
             // console.log("ログインしました");
 
             // URLを取得するコード
-            var url = location.href;
-            // var msg = "ログインしました";
+            let url = location.href;
+            // let msg = "ログインしました";
             // $.notify(msg,"success");
 
             // リダイレクトを行うコード
-            // var redirect_url = url + location.search;
+            // let redirect_url = url + location.search;
             // if (document.referrer) {
-            //   var referrer = "referrer=" + encodeURIComponent(document.referrer);
+            //   let referrer = "referrer=" + encodeURIComponent(document.referrer);
             //   redirect_url = redirect_url + (location.search ? '&' : '?') + referrer;
             // }
             // location.href = redirect_url;
@@ -1349,8 +947,8 @@ $(document).ready(function() {
             // .リダイレクトを行うコード
         }).catch(function(error) {
             // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
+            let errorCode = error.code;
+            let errorMessage = error.message;
             // console.log(error.code);
             // console.log(error.message);
         });
