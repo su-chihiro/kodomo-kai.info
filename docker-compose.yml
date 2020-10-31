@@ -1,47 +1,16 @@
 version: '3.8'
 services:
-  app:
+  apache2:
     ports:
       - "8000:80"
-    build: ./docker/app
-    container_name: laravel_app
+    build: ./docker/apache2
+    container_name: apache2
     volumes:
       - ./src:/var/www/html
 
-  db:
-    # image: mysql:5.7
-    build: ./docker/db
-    container_name: laravel_db
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: Ipoca
-      MYSQL_USER: devuser
-      MYSQL_PASSWORD: card1234
-      TZ: 'Asia/Tokyo'
-    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
-    volumes:
-      - ./docker/db/my.cnf:/etc/mysql/conf.d/my.cnf
-      - ./docker/db/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
-    ports:
-      - 3306:3306
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    depends_on:
-      - db
-    environment:
-      - PMA_ARBITRARY=1
-      - PMA_HOST=db
-      - PMA_USER=root
-      - PMA_PASSWORD=root
-    ports:
-      - 8080:80
-    volumes:
-      - ./docker/db:/var/lib/mysql
-      - ./docker/phpmyadmin/sessions:/sessions
-
   # db:
   #   image: postgres:12.3-alpine
-  #   container_name: db-container
+  #   container_name: postgres
   #     - "5432:5432"
   #   environment:
   #     TZ: "Asia/Tokyo"
@@ -49,6 +18,6 @@ services:
   #     POSTGRES_USER: test
   #     POSTGRES_PASSWORD: test
   #     POSTGRES_DB: test
-    # volumes:
-    #   - ./docker/db:/var/lib/psql
-    #   - ./docker/db/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+  #   volumes:
+  #     - ./docker/db:/var/lib/psql
+  #     - ./docker/db/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d

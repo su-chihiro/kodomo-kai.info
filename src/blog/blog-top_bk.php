@@ -26,7 +26,7 @@ $charH = new CharChicanClass();
   <?php include($_SERVER['DOCUMENT_ROOT']."/parts/login.php"); ?>
 
   <div class="container pt-4">
-    <main role="main" class="container" style="">
+    <main role="main" class="container">
       <div class="row">
 
       <!-- パンくずリスト -->

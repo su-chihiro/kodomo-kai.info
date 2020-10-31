@@ -44,7 +44,7 @@
   <?php include($_SERVER['DOCUMENT_ROOT']."/parts/header.php"); ?>
   <?php include($_SERVER['DOCUMENT_ROOT']."/parts/login.php"); ?>
 
-    <main role="main" class="container pt-4" style="">
+    <main role="main" class="container pt-4">
       <div class="row">
         <!-- パンくずリスト -->
         <div class="col-md-12 text-left mb-4">
