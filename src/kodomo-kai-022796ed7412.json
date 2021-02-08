@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "kodomo-kai",
+  "private_key_id": "022796ed741295e9914deceaeb46cd4d24bbaed2",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC6r4XZOBLC6Cr/\nglurQOnPuEGNO50ZkNSR70OQhc8IxsNQJdoq0I4j4MxcJqrFa6F2vw8FazGEXSnW\n108ed9LlG22Z68zbasvbZoQ4TzB/tDA6aE32CV3MlQA3zLSZucgaTmLZoNPpt8cq\n4CRWND5AT3rAHzK6mcUfXu3p+v7t2gOWHYyJFPIXZJleDMP/nN4erTK8VJnJkzVr\ngjTzzFBODP7U5Ujtfjhi18QE7X3NDuWSAZbV7thQSmWYSbVMJ7zACDD7MYaxiJEY\n6uAb7bEXGVDsb1dNhnBN+Ewt/CqyGRtkM+FimlO8+PyToGWPM8UOfCURX8GDNmcG\nPaD9Ot61AgMBAAECggEAALbqRBC8YFBDgIiEXE1FIn054atVkxhO+qNX9rDPFYwD\n3wXTZhrikw2UX/0/5b3fN3/3XpXF8ek/Xz9Mt2OjBCsiNMFxHnKJXDTHaHBufEFO\ny/JulfSm42u7PVDEbNrdWAhucBchqIEtEHjHetL8CAKl3XVhHCi5getlmAx/YZ6p\n0CBDqeZ7usnoQjqAKlAfeHJKnBRuMTdBWLYryfyONhojw3+6Vc7Q40jNfgZguTgr\n6QKobMEyBcRJgpVWSHwQDXpQOVXPwHoDpY+JhImBv5ZcGBt/0xDTXjdLJ2Ecit7t\nMPDZiZmiqb0M+10mHYiSu9yhvLTu6WU6XeHmtv6UIwKBgQDwuXNkjGugyvv9gKle\nuDkfZLKpt7syQuVREQtIp1iEt3yqC5oQwdhITX7z3JBL5usrBBkEhZlf1y1mRduN\nWCsmTAxvfzCTNP2n8puyDQTfKlDvxxscOte+tKIH4+kkCekitv0VQrOxdP41otYZ\nxACpq5eo3MTU1VVpE6t/81KMYwKBgQDGiDdiKcIE/H3+NsQe4LIKsLIvgcBrdY2C\naOey0HAw+g3U5mO2hKBLfp1AQloMt886HRAZzWeO9wLcEsyHDPqCK3zTXQJkph2U\ntCejAs6saCor8Cma8VwXyU9s79Igs0aICTI6D2UW7ZvOgxzQy7AHCmhhqiPnaS+m\nkt8Vv51YBwKBgGJ3+bPPnNcRMTLpRl7wjK1Cy7KQ7YoJwzP9/NejXJotVFlalZL1\nODubN6sZNg1WUCwwaOtomuyRYIjNWpnezwfDY/LX3E7bBkeE/hs/KBcBgEoU8AoE\nJ+xih0Ui/WM4ip0grTXdKxQT/0iBa4LuojbFciwo4nsNKPrqiOS167ZxAoGAbW2J\ncV7o5UyyuZtAMHDTUdcg79SJ1fE+ZYIjK8l9/VDmrNGsZl7l55bLYC7yaY4q97Ir\nPL2d9gwqlFj8SPgbYAJOVEYw2n9BUMSYEF6swhTMIdnHZPLiOu4oDDiHzqRiHPtM\npvnzU1b2iTZ1fJS42rie3i4kihnNPPg5ZEhwlqMCgYB9cwD3y23r71+GUn2jReBo\nngG7I01J+KL1+StZoejvEFZZqOaYW9eBEXACzTvFGQSu7BgTtGbyNBrmnuyCieQq\nKdGNIHKAYX8tujaArOYBMcPB1Ubkz8uayAb/C6d3ilp15ADVsvFNFdtd+8ZDqhvi\nwoEavRl4+oNfP5HMDrI0/Q==\n-----END PRIVATE KEY-----\n",
+  "client_email": "kodomo-kai-user@kodomo-kai.iam.gserviceaccount.com",
+  "client_id": "107161665765086572244",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/kodomo-kai-user%40kodomo-kai.iam.gserviceaccount.com"
+}

@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  apache2:
+    ports:
+      - "8000:80"
+    build: ./docker/apache2
+    container_name: apache2
+    volumes:
+      - ./src:/var/www/html
+      
