@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: kodomo-kai.info
+Token: 5ff8d8158183c74b7e9d894ade700e5883359f3607921f7786f39448bfd84a4e
