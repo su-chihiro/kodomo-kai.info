@@ -1,2 +1,9 @@
-fukuoka/*
-mnkGame/*
+# .htaccess
+
+src/fukuoka/*
+src/mnkGame/*
+src/kodomo-kai-022796ed7412.json
+src/archive/*
+src/bulletin-board/file/topics-data/*
+src/recreation/file/*
+src/users/users.json
