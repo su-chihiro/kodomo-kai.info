@@ -216,7 +216,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/userFunction.php";
               <h4 class="font-italic border-left-5">リリースノート</h4>
               <ol class="list-unstyled">
                   <li class="mb-1">
-                    <a href="/releases" target="" class="pl-2 text-muted">リリース情報</a>
+                    <a href="https://github.com/ChihiroS/kodomo-kai.info/releases" target="_blank" class="pl-2 text-muted">リリース情報<i class="fas fa-external-link-alt ml-2"></i></a>
                   </li>
               </ol>
             </div>
