@@ -119,14 +119,11 @@
                   if (is_file($filepath)) {
                     if (file_exists($filepath)) {
                       [$arr, $cnt] = json_read($filepath);
-                      // $arr_cnt = count($arr[0]);
                       if ($arr === NULL) {
                           // データがない時の処理
                           return;
                       } else {
                           // 存在しているときの処理
-                          // $json_count = count($arr);
-                          
                           $targetNum = ["1～5人", "5～10人", "10～20人", "20～40人", "人数に関係なし"];
                           $targetAge = ["幼児（1～6才）", "児童（7～12才）", "児童（7～9才）", "児童（10～12才）", "生徒（13～18歳）", "年齢に関係なし"];
                           $timeRequired = ["5分未満", "5～10分", "10～20分", "20～40分", "40分以上"];
@@ -143,7 +140,7 @@
                           echo "\t<td scope=\"row\" class=\"d-none d-sm-table-cell\">{$str}</td>\n";
                           echo "</tr>\n";
                       }
-                      fclose($fp);
+                      // fclose($filepath);
                     }
                   }
                 }

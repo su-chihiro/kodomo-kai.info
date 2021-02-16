@@ -108,7 +108,7 @@ require $_SERVER['DOCUMENT_ROOT']."/userFunction.php";
 
                         echo "</tr>";
                       }
-                      fclose($fp);
+                      // fclose($fp);
                     }
                   }
                 }
