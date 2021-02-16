@@ -1,13 +1,14 @@
 // Firebase Project sample
 // Initialize Firebase
 let config = {
-  apiKey: "AIzaSyC3baEIaKTilZea0Og8W9O1DJM8l10fyt8",
-  authDomain: "sample-8a460.firebaseapp.com",
-  databaseURL: "https://sample-8a460.firebaseio.com",
-  projectId: "sample-8a460",
-  storageBucket: "sample-8a460.appspot.com",
-  messagingSenderId: "23145969282"
-};
+  apiKey: "AIzaSyAuWJFbFoqB4yuh6saLJITD2bJviEgVnb0",
+  authDomain: "kodomo-kai-info.firebaseapp.com",
+  projectId: "kodomo-kai-info",
+  storageBucket: "kodomo-kai-info.appspot.com",
+  messagingSenderId: "442030664167",
+  appId: "1:442030664167:web:c6f46456bb9ff628aaf542",
+  measurementId: "G-WPSY1043CP"
+}
 firebase.initializeApp(config);
 
 const Messages = {
@@ -74,6 +75,10 @@ function sleep(waitMsec) {
   // 指定ミリ秒間だけループさせる（CPUは常にビジー状態）
   while (new Date() - startMsec < waitMsec);
 }
+
+$('#userInfo').on('click', function() {
+  console.log(userInfo());
+});
 
 // Firebaseのユーザ情報をjsonで返す
 function userInfo() {

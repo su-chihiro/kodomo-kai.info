@@ -1,22 +1,22 @@
 <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
+<script src=“https://www.gstatic.com/firebasejs/8.2.5/firebase-messaging.js”></script>
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-analytics.js"></script>
 
 <script>
   // Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   var firebaseConfig = {
-    apiKey: "AIzaSyC3baEIaKTilZea0Og8W9O1DJM8l10fyt8",
-    authDomain: "sample-8a460.firebaseapp.com",
-    databaseURL: "https://sample-8a460.firebaseio.com",
-    projectId: "sample-8a460",
-    storageBucket: "sample-8a460.appspot.com",
-    messagingSenderId: "23145969282",
-    appId: "1:23145969282:web:ff37f0ef6006b1128fa69b",
-    measurementId: "G-858XW04N5L"
+    apiKey: "AIzaSyAuWJFbFoqB4yuh6saLJITD2bJviEgVnb0",
+    authDomain: "kodomo-kai-info.firebaseapp.com",
+    projectId: "kodomo-kai-info",
+    storageBucket: "kodomo-kai-info.appspot.com",
+    messagingSenderId: "442030664167",
+    appId: "1:442030664167:web:c6f46456bb9ff628aaf542",
+    measurementId: "G-WPSY1043CP"
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
