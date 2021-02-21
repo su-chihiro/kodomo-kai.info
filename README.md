@@ -1,3 +1,9 @@
+<div align="center">
+<img src="https://i.imgur.com/ih65qbK.png" width="50%">
+</div>
+
+
+
 # 実行方法
 ```
 $ docker-compose build
