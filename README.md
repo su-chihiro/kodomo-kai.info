@@ -1,9 +1,13 @@
 <div align="center" style="font-family: Playfair Display, Georgia, Times New Roman, serif;
     font-size: 2.25rem;">
 <img src="https://i.imgur.com/ih65qbK.png" width="50%">
-<!-- <img src="src/img/favicon/eco-green-leaf-icon-32-170142.png" style="padding-right: 5px;">ジュニアのたまりば -->
-<!-- <img src="src/img/favicon/512_favicon.png" style="padding-right: 5px;" width="5%">ジュニアのたまりば -->
 </div>
+
+# ジュニアのたまりば: JLのためにポータルサイトです
+<img src="https://shields.io/badge/Docker-white?style=flat&logo=docker">
+<img src="https://shields.io/badge/Ubuntu-v20.04.1LTS-white?style=flat&logo=ubuntu">
+<img src="https://shields.io/badge/php-v7.3.26-blue?style=flat&logo=php">
+<img src="https://shields.io/badge/apache-v2.4.41-red?style=flat&logo=apache">
 
 
 
