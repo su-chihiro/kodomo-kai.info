@@ -7,3 +7,6 @@ src/archive/*
 src/bulletin-board/file/topics-data/*
 src/recreation/file/*
 src/users/users.json
+
+.DS_Store
+src/.DS_Store
