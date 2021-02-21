@@ -1,5 +1,8 @@
-<div align="center">
-<img src="https://i.imgur.com/ih65qbK.png" width="50%">
+<div align="center" style="font-family: Playfair Display, Georgia, Times New Roman, serif;
+    font-size: 2.25rem;">
+<!-- <img src="https://i.imgur.com/ih65qbK.png" width="50%"> -->
+<!-- <img src="src/img/favicon/eco-green-leaf-icon-32-170142.png" style="padding-right: 5px;">ジュニアのたまりば -->
+<img src="src/img/favicon/512_favicon.png" style="padding-right: 5px;" width="5%">ジュニアのたまりば
 </div>
 
 
