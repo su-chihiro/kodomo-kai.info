@@ -1,5 +1,6 @@
 <div align="center" style="font-family: Playfair Display, Georgia, Times New Roman, serif;
     font-size: 2.25rem;">
+<img src="src/img/title.png" width="50%">
 <img src="https://i.imgur.com/ih65qbK.png" width="50%">
 </div>
 
