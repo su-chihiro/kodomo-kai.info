@@ -32,13 +32,11 @@ require $_SERVER['DOCUMENT_ROOT']."/userFunction.php";
           <i class="fas fa-home"></i>
           <a href="/" class="ml-2 text-dark">ホーム</a>
           <i class="fas fa-angle-right mx-2"></i>
-          <!-- <a href="/bulletin-board-top.php" class="text-dark">シニア・ジュニアリーダー</a> -->
           <a href="/bulletin-board/bulletin-board-top.php" class="text-dark">掲示板</a>
         </div>
         <!-- ./パンくずリスト -->
 
         <div class="col-md-12 order-md-1">
-          <!-- <h3 class="mb-3"><i class="fas fa-user mr-2"></i>シニア・<span class="d-inline-block">ジュニアリーダー</span></h3> -->
           <h3 class="mb-3"><i class="fas fa-user mr-2"></i>掲示板</h3>
             <table class="table table-striped">
               <thead>
@@ -50,7 +48,6 @@ require $_SERVER['DOCUMENT_ROOT']."/userFunction.php";
                 </tr>
               </thead>
               <tbody>
-              <!-- <tr><td><a href="#">このサイトの使い方</a></td><td></td><td></td><td></td></tr> -->
 
               <!-- div でjsのコードを追加する -->
               <?php
@@ -114,15 +111,12 @@ require $_SERVER['DOCUMENT_ROOT']."/userFunction.php";
                 }
               ?>
 
-              <!-- <tr id="addTopic"></tr> -->
               </tbody>
             </table>
 
             <button type="button" class="btn btn-secondary btn-lg btn-block col-md-4 col-sm-12 my-4 mr-auto" value="" name="submit" id="newTopicButton">トピック新規作成</button>
-            <!-- <button type="button" class="btn btn-lg btn-block col-md-4 col-sm-12 my-4 mr-auto" value="" name="" id="Btn">練習用</button> -->
 
             <div class="needs-validation new-topic-form px-3 pt-2 border-1 border-secondary mb-3 rounded" novalidate id="newTopicForm">
-            <!-- <form class="needs-validation new-topic-form px-3 pt-2 border-1 border-secondary rounded" novalidate id="newTopicForm" name="newtopicform" action="./jl.php" method="POST" onSubmit="return check()"> -->
               <div class="row">
                 <div class="col-md-12 mb-3">
                   <label for="title">トピック掲示板<sup style="color:red;">*必須</sup></label>
@@ -133,7 +127,6 @@ require $_SERVER['DOCUMENT_ROOT']."/userFunction.php";
                   <textarea id="Sentence" name="sentence" class="form-control" rows="5" placeholder="ここに文章を書きます"></textarea>
                 </div>
                 <button class="btn btn-primary btn-lg btn-block col-4 mx-auto my-4" type="button" id="newTopicBuildBtn">完了</button>
-                <!-- </form> -->
               </div>
              </div>
         <div id="insert"></div>

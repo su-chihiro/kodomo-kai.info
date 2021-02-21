@@ -1,7 +1,3 @@
-<?php
-include($_SERVER['DOCUMENT_ROOT'].'/class/char2UnicodeClass.php');
-$charH = new CharChicanClass();
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,11 +12,9 @@ $charH = new CharChicanClass();
   <title>みんなのブログ - ジュニアのたまりば</title>
   <?php include($_SERVER['DOCUMENT_ROOT']."/parts/css.php"); ?>
   <?php include($_SERVER['DOCUMENT_ROOT']."/parts/head_script.php"); ?>
-
 </head>
 
 <body>
-
   <!-- ヘッダー部分コード -->
   <?php include($_SERVER['DOCUMENT_ROOT']."/parts/header.php"); ?>
   <?php include($_SERVER['DOCUMENT_ROOT']."/parts/login.php"); ?>

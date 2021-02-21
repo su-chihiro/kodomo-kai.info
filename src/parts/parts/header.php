@@ -1,31 +1,21 @@
 <?php
 $webSiteTitle = "ジュニアのたまりば";
-// $webSiteTitle = "Connect";
-// $webSiteTitle = "<span class=\"{$padding}\">C</span><span class=\"{$padding}\">o</span><span class=\"{$padding}\">n</span><span class=\"{$padding}\">n</span><span class=\"{$padding}\">e</span><span class=\"{$padding}\">c</span><span class=\"{$padding}\">t</span>";
-
 ?>
 <!-- ナビ始まり スマホサイズ時に出現-->
 <nav class="navbar navbar-expand-lg text-left navbar-dark bg-secondary d-lg-none">
   <a class="navbar-brand" href="/"><?php echo "{$webSiteTitle}" ?></a>
-  <!-- <i class="fas fa-user-circle btn btn-outline-secondary p-0 m-0" style="color:#bfbfbf;width:8%;height:8%;" data-toggle="modal" data-target="#myModalLogin"></i> -->
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
     <ul class="navbar-nav text-left" style="opacity: 0.5;">
-      <!-- <li class="nav-item">
-        <a class="nav-link" style="color:rgb(255,255,255);" href="/about/about-top.php">・このサイトの使い方</a>
-      </li> -->
       <li class="nav-item">
-        <!-- <a class="nav-link" style="color:rgb(255,255,255);" href="/blog/blog-top.php">・みんなのブログ</span> -->
         <span class="nav-link" style="color:rgb(255,255,255);"><s>・みんなのブログ</s><sup style="color:red;">*非公開</sup></a>
       </li>
       <li class="nav-item">
-        <!-- <a class="nav-link" style="color:rgb(255,255,255);" href="/kodomo-kai/kodomo-kai-top.php">・子ども会の紹介</a> -->
         <span class="nav-link" style="color:rgb(255,255,255);"><s>・子ども会の紹介</s><sup style="color:red;">*非公開</sup></a>
       </li>
       <li class="nav-item">
-        <!-- <a class="nav-link" style="color:rgb(255,255,255);" href="/bulletin-board/bulletin-board-top.php">・シニア・ジュニアリーダー</a> -->
         <a class="nav-link" style="color:rgb(255,255,255);" href="/bulletin-board/bulletin-board-top.php">・掲示板</a>
       </li>
       <li class="nav-item">
@@ -90,13 +80,9 @@ $webSiteTitle = $webTitle;
     </header>
     <div class="nav-scroller pt-1">
       <nav class="nav d-flex justify-content-between px-5">
-        <!-- <a class="p-2 text-muted" href="/about/about-top.php"><i class="fas fa-list-ul mr-2"></i>このサイトの使い方</a> -->
-        <!-- <a class="p-2 text-muted" href="/blog/blog-top.php"><i class="far fa-clipboard mr-2"></i>みんなのブログ</a>
-        <a class="p-2 text-muted" href="/kodomo-kai/kodomo-kai-top.php"><i class="fas fa-map-marker-alt mr-2"></i>子ども会の紹介</a> -->
         <span class="p-2 text-muted" href=""><i class="far fa-clipboard mr-2"></i><s>みんなのブログ</s><sup style="color:red;">*非公開</sup></span>
         <span class="p-2 text-muted" href=""><i class="fas fa-map-marker-alt mr-2"></i><s>子ども会の紹介</s><sup style="color:red;">*非公開</sup></span>
         <a class="p-2 text-muted" href="/bulletin-board/bulletin-board-top.php">
-          <!-- <i class="fas fa-user mr-2"></i>シニア・ジュニアリーダー</a> -->
           <i class="fas fa-user mr-2"></i>掲示板</a>
         <a class="p-2 text-muted" href="/recreation/recreation-top.php">
           <i class="fas fa-praying-hands mr-2"></i>レクリエーション</a>

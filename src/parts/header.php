@@ -10,9 +10,6 @@ $webSiteTitle = "ジュニアのたまりば";
   </button>
   <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
     <ul class="navbar-nav text-left" style="opacity: 0.5;">
-      <!-- <li class="nav-item">
-        <a class="nav-link" style="color:rgb(255,255,255);" href="/about/about-top.php">・このサイトの使い方</a>
-      </li> -->
       <li class="nav-item">
         <a class="nav-link" style="color:rgb(255,255,255);" href="/blog/blog-top.php">・みんなのブログ</a>
       </li>
@@ -20,7 +17,6 @@ $webSiteTitle = "ジュニアのたまりば";
         <a class="nav-link" style="color:rgb(255,255,255);" href="/kodomo-kai/kodomo-kai-top.php">・子ども会</a>
       </li>
       <li class="nav-item">
-        <!-- <a class="nav-link" style="color:rgb(255,255,255);" href="/bulletin-board/bulletin-board-top.php">・シニア・ジュニアリーダー</a> -->
         <a class="nav-link" style="color:rgb(255,255,255);" href="/bulletin-board/bulletin-board-top.php">・掲示板</a>
       </li>
       <li class="nav-item">
@@ -76,11 +72,9 @@ $webSiteTitle = "ジュニアのたまりば";
     </header>
     <div class="nav-scroller pt-1">
       <nav class="nav d-flex justify-content-between px-5">
-        <!-- <a class="p-2 text-muted" href="/about/about-top.php"><i class="fas fa-list-ul mr-2"></i>このサイトの使い方</a> -->
         <a class="p-2 text-muted" href="/blog/blog-top.php"><i class="far fa-clipboard mr-2"></i>みんなのブログ</a>
         <a class="p-2 text-muted" href="/kodomo-kai/kodomo-kai-top.php"><i class="fas fa-map-marker-alt mr-2"></i>子ども会</a>
         <a class="p-2 text-muted" href="/bulletin-board/bulletin-board-top.php">
-          <!-- <i class="fas fa-user mr-2"></i>シニア・ジュニアリーダー</a> -->
           <i class="fas fa-user mr-2"></i>掲示板</a>
         <a class="p-2 text-muted" href="/recreation/recreation-top.php">
           <i class="fas fa-praying-hands mr-2"></i>レクリエーション</a>

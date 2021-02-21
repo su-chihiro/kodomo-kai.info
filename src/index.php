@@ -1,11 +1,4 @@
-<?php
-// $params = explode('/', $_GET['url']);
-// $model = array_shift($params);
-// echo "<script>console.log(\"{$model}\")</script>";
-// echo "<script>console.log(\"{$params}\")</script>";
-
-require $_SERVER['DOCUMENT_ROOT'] . "/userFunction.php";
-?>
+<?php require $_SERVER['DOCUMENT_ROOT'] . "/userFunction.php"; ?>
 
 <!DOCTYPE html>
 <html>
@@ -18,9 +11,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/userFunction.php";
   echo "<meta name=\"description\" content=\"子ども会, kodomo, ジュニアリーダー, jl, {$content}\">";
   ?>
   <meta name="author" content="Suzurikawa Chihiro">
-  <!-- <meta name="keywords" content="子ども会,ジュニアリーダー,シニアリーダー,JL,SL"> -->
   <link rel="icon" href='/img/favicon/favicon.ico'>
-  <!-- <title>トップページ - 子ども会を変えたい</title> -->
   <title>トップページ - ジュニアのたまりば</title>
 
   <!-- CSS -->
@@ -29,11 +20,6 @@ require $_SERVER['DOCUMENT_ROOT'] . "/userFunction.php";
 
   <!-- JavaScript -->
   <?php include($_SERVER['DOCUMENT_ROOT'] . "/parts/head_script.php"); ?>
-  <style>
-    body {}
-
-    .container {}
-  </style>
 </head>
 
 <body>
@@ -187,15 +173,6 @@ require $_SERVER['DOCUMENT_ROOT'] . "/userFunction.php";
               </li>
             </ol>
           </div>
-
-          <!-- <div class="p-3">
-            <h4 class="font-italic border-left-5">プライバシー<span class="d-inline-block">ポリシー</span></h4>
-            <ol class="list-unstyled mb-0">
-              <li>
-                <a href="privacyPolicy.php" class="pl-2 text-muted">詳細はこちら</a>
-              </li>
-            </ol>
-          </div> -->
 
           <div class="p-3">
             <h4 class="font-italic border-left-5">外部リンク</h4>
