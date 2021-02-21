@@ -30,7 +30,7 @@
   <meta name="author" content="">
   <link rel="icon" href="/img/favicon/favicon.ico">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-  <title class="topicTitle"><?php echo "$title" ?> - 子ども会を変えたい</title>
+  <title class="topicTitle"><?php echo "$title" ?> - ジュニアのたまりば</title>
   <?php include($_SERVER['DOCUMENT_ROOT']."/parts/css.php"); ?>
   <?php include($_SERVER['DOCUMENT_ROOT']."/parts/head_script.php"); ?>
   <link href="/css/youtube_frame.css" rel="stylesheet">

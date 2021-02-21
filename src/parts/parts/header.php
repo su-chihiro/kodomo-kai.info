@@ -1,6 +1,5 @@
 <?php
 $webSiteTitle = "ジュニアのたまりば";
-// $webSiteTitle = "子ども会を変えたい";
 // $webSiteTitle = "Connect";
 // $webSiteTitle = "<span class=\"{$padding}\">C</span><span class=\"{$padding}\">o</span><span class=\"{$padding}\">n</span><span class=\"{$padding}\">n</span><span class=\"{$padding}\">e</span><span class=\"{$padding}\">c</span><span class=\"{$padding}\">t</span>";
 

@@ -13,7 +13,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/class/char2UnicodeClass.php');
   ?>
   <meta name="author" content="">
   <link rel="icon" href="/img/favicon/favicon.ico">
-  <title>レクリエーション - 子ども会を変えたい</title>
+  <title>レクリエーション - ジュニアのたまりば</title>
   <?php include($_SERVER['DOCUMENT_ROOT']."/parts/css.php"); ?>
   <?php include($_SERVER['DOCUMENT_ROOT']."/parts/head_script.php"); ?>
 </head>

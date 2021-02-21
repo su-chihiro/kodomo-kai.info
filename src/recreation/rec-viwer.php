@@ -25,7 +25,7 @@
     echo "<meta name=\"description\" content=\"子ども会, kodomo, ジュニアリーダー, jl, ".strip_tags($arr["Sentence"], '').">";
   ?>
   <link rel="icon" href="/img/favicon/favicon.ico">
-  <title class="topicTitle"><?php echo $arr["recTitle"] ?> - 子ども会を変えたい</title>
+  <title class="topicTitle"><?php echo $arr["recTitle"] ?> - ジュニアのたまりば</title>
   <link href="/css/youtube_frame.css" rel="stylesheet">
   <?php include($_SERVER['DOCUMENT_ROOT']."/parts/css.php"); ?>
   <?php include($_SERVER['DOCUMENT_ROOT']."/parts/head_script.php"); ?>

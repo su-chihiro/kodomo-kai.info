@@ -31,7 +31,7 @@
     echo "<meta name=\"description\" content=\"子ども会, kodomo, ジュニアリーダー, jl, 掲示板, {$content}\">";
   ?>
   <meta name="author" content="">
-  <title class="topicTitle"><?php echo "$title" ?> - 子ども会を変えたい</title>
+  <title class="topicTitle"><?php echo "$title" ?> - ジュニアのたまりば</title>
   <link rel="icon" href="/img/favicon/favicon.ico">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <link href="/css/youtube_frame.css" rel="stylesheet">

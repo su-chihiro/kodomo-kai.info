@@ -15,7 +15,7 @@ require $_SERVER['DOCUMENT_ROOT']."/userFunction.php";
   ?>
   <meta name="author" content="">
   <link rel="icon" href="/img/favicon/favicon.ico">
-  <title>掲示板 - 子ども会を変えたい</title>
+  <title>掲示板 - ジュニアのたまりば</title>
   <?php include($_SERVER['DOCUMENT_ROOT']."/parts/css.php"); ?>
   <?php include($_SERVER['DOCUMENT_ROOT']."/parts/head_script.php"); ?>
 </head>

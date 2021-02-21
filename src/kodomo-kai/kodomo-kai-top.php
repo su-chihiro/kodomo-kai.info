@@ -10,7 +10,7 @@
     echo "<meta name=\"description\" content=\"子ども会, kodomo, ジュニアリーダー, jl, レク, レクリエーション, {$content}\">";
   ?>
   <link rel="icon" href="/img/favicon/favicon.ico">
-  <title>子ども会 - 子ども会を変えたい</title>
+  <title>子ども会 - ジュニアのたまりば</title>
   <?php include($_SERVER['DOCUMENT_ROOT']."/parts/css.php"); ?>
   <?php include($_SERVER['DOCUMENT_ROOT']."/parts/head_script.php"); ?>
 
