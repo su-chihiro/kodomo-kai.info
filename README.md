@@ -4,12 +4,10 @@
 </div>
 
 # ジュニアのたまりば: JLのためにポータルサイトです
-<img src="https://shields.io/badge/Docker-white?style=flat&logo=docker">
-<img src="https://shields.io/badge/Ubuntu-v20.04.1LTS-white?style=flat&logo=ubuntu">
-<img src="https://shields.io/badge/php-v7.3.26-blue?style=flat&logo=php">
-<img src="https://shields.io/badge/apache-v2.4.41-red?style=flat&logo=apache">
-
-
+![Docker](https://shields.io/badge/Docker-white?style=flat&logo=docker)
+![Ubuntu](https://shields.io/badge/Ubuntu-v20.04.1LTS-white?style=flat&logo=ubuntu)
+![PHP](https://shields.io/badge/php-v7.3.26-blue?style=flat&logo=php)
+![Apache](https://shields.io/badge/apache-v2.4.41-red?style=flat&logo=apache)
 
 # 実行方法
 ```
