@@ -21,7 +21,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/userFunction.php";
   <!-- <meta name="keywords" content="子ども会,ジュニアリーダー,シニアリーダー,JL,SL"> -->
   <link rel="icon" href='/img/favicon/favicon.ico'>
   <!-- <title>トップページ - 子ども会を変えたい</title> -->
-  <title>トップページ - ジュニアのたまりば</title>
+  <title>あｄｊなｊｋｄじゃｓだｊｋｌｄじゃｋｌｄじゃｓｋｌｄじゃｓｋｄじゃｓｋｌｄじゃｋｌｄじゃｓｋｌｄじゃｋｌｄじゃｓｋｌｄｊｋｌｄｊｋｌｄじゃｋｌｄｊｓ</title>
 
   <!-- CSS -->
   <?php include($_SERVER['DOCUMENT_ROOT'] . "/parts/css.php"); ?>
